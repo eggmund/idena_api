@@ -79,24 +79,24 @@ impl IdenaAPI {
 
     pub async fn epoch(&self) -> Result<Value, IdenaError> {
         do_request!(self, {
-            "key": self._api_key,
+            "key": self.api_key,
             "id": 1,
             "method": "dna_epoch",
-        });
+        })
     }
 
     // pub async fn ceremony_intervals(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     // pub async fn address(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     /// Get the balance of an address.
@@ -113,98 +113,98 @@ impl IdenaAPI {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     // pub async fn transactions(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     // pub async fn pending_transactions(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     // pub async fn kill_identity(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     // pub async fn go_online(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     // pub async fn go_offline(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     // pub async fn send_invite(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     // pub async fn activate_invite(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     // pub async fn fetch_flip_short_hashes(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     // pub async fn fetch_flip_long_hashes(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     // pub async fn get_flip(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     // pub async fn submit_short_answers(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     // pub async fn submit_long_answers(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     // pub async fn submit_flip(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     /// Send DNA from one address to another.
@@ -221,34 +221,34 @@ impl IdenaAPI {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     // pub async fn node_version(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     // pub async fn import_key(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     // pub async fn export_key(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 
     // pub async fn enode(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
     //         "key": self._api_key,
     //         "id": 1,
-    //     });
+    //     })
     // }
 }

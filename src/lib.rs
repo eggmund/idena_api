@@ -4,7 +4,7 @@ mod error;
 
 use serde_json::{json, Value};
 use reqwest::Client;
-use error::IdenaError;
+pub use error::IdenaError;
 
 // Macro used to simplify code when requesting.
 macro_rules! do_request {

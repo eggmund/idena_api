@@ -217,12 +217,13 @@ impl IdenaAPI {
         })
     }
 
-    // pub async fn sync_status(&self) -> Result<Value, IdenaError> {
-    //     do_request!(self, {
-    //         "key": self._api_key,
-    //         "id": 1,
-    //     })
-    // }
+    pub async fn sync_status(&self) -> Result<Value, IdenaError> {
+        do_request!(self, {
+            "key": self.api_key,
+            "id": 1,
+            "method": "bcn_syncing"
+        })
+    }
 
     // pub async fn node_version(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {

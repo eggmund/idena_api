@@ -77,6 +77,7 @@ impl IdenaAPI {
         })
     }
 
+    /// Get the current epoch.
     pub async fn epoch(&self) -> Result<Value, IdenaError> {
         do_request!(self, {
             "key": self.api_key,
@@ -85,19 +86,23 @@ impl IdenaAPI {
         })
     }
 
-    // pub async fn ceremony_intervals(&self) -> Result<Value, IdenaError> {
-    //     do_request!(self, {
-    //         "key": self._api_key,
-    //         "id": 1,
-    //     })
-    // }
+    /// Get the interval between ceremonies.
+    pub async fn ceremony_intervals(&self) -> Result<Value, IdenaError> {
+        do_request!(self, {
+            "key": self.api_key,
+            "method": "dna_ceremonyIntervals",
+            "id": 1,
+        })
+    }
 
-    // pub async fn address(&self) -> Result<Value, IdenaError> {
-    //     do_request!(self, {
-    //         "key": self._api_key,
-    //         "id": 1,
-    //     })
-    // }
+    /// Get this node's address.
+    pub async fn address(&self) -> Result<Value, IdenaError> {
+        do_request!(self, {
+            "key": self.api_key,
+            "method": "dna_getCoinbaseAddr",
+            "id": 1,
+        })
+    }
 
     /// Get the balance of an address.
     pub async fn balance(&self, address: &str) -> Result<Value, IdenaError> {
@@ -109,100 +114,121 @@ impl IdenaAPI {
         })
     }
 
-    // pub async fn transaction(&self) -> Result<Value, IdenaError> {
-    //     do_request!(self, {
-    //         "key": self._api_key,
-    //         "id": 1,
-    //     })
-    // }
+    /// Get information about a transaction.
+    pub async fn transaction(&self, trx_hash: &str) -> Result<Value, IdenaError> {
+        do_request!(self, {
+            "key": self.api_key,
+            "method": "bcn_transaction",
+            "params": [trx_hash],
+            "id": 1,
+        })
+    }
 
-    // pub async fn transactions(&self) -> Result<Value, IdenaError> {
-    //     do_request!(self, {
-    //         "key": self._api_key,
-    //         "id": 1,
-    //     })
-    // }
+    /// Get previous transactions.
+    pub async fn transactions(&self, address: &str, count: usize) -> Result<Value, IdenaError> {
+        do_request!(self, {
+            "key": self.api_key,
+            "method": "bcn_transactions",
+            "params": [{ "address": address, "count": count }],
+            "id": 1,
+        })
+    }
 
-    // pub async fn pending_transactions(&self) -> Result<Value, IdenaError> {
-    //     do_request!(self, {
-    //         "key": self._api_key,
-    //         "id": 1,
-    //     })
-    // }
+    /// Get pending transactions.
+    pub async fn pending_transactions(&self, address: &str, count: usize) -> Result<Value, IdenaError> {
+        do_request!(self, {
+            "key": self.api_key,
+            "method": "bcn_pendingTransactions",
+            "params": [{ "address": address, "count": count }],
+            "id": 1,
+        })
+    }
 
-    // pub async fn kill_identity(&self) -> Result<Value, IdenaError> {
-    //     do_request!(self, {
-    //         "key": self._api_key,
-    //         "id": 1,
-    //     })
-    // }
+    /// Kill this identity.
+    pub async fn kill_identity(&self, address: &str) -> Result<Value, IdenaError> {
+        do_request!(self, {
+            "key": self.api_key,
+            "method": "dna_sendTransaction",
+            "params": [{ "type": 3, "from": address, "to": address }],
+            "id": 1,
+        })
+    }
 
-    // pub async fn go_online(&self) -> Result<Value, IdenaError> {
-    //     do_request!(self, {
-    //         "key": self._api_key,
-    //         "id": 1,
-    //     })
-    // }
+    /// Set mining online.
+    pub async fn go_online(&self) -> Result<Value, IdenaError> {
+        do_request!(self, {
+            "key": self.api_key,
+            "method": "dna_becomeOnline",
+            "params": [{}],
+            "id": 1,
+        })
+    }
 
-    // pub async fn go_offline(&self) -> Result<Value, IdenaError> {
-    //     do_request!(self, {
-    //         "key": self._api_key,
-    //         "id": 1,
-    //     })
-    // }
+    /// Set mining offline.
+    pub async fn go_offline(&self) -> Result<Value, IdenaError> {
+        do_request!(self, {
+            "key": self.api_key,
+            "method": "dna_becomeOffline",
+            "params": [{}],
+            "id": 1,
+        })
+    }
 
-    // pub async fn send_invite(&self) -> Result<Value, IdenaError> {
+    // /// Send an invite.
+    // pub async fn send_invite(&self, to_address: &str, amount: f64) -> Result<Value, IdenaError> {
     //     do_request!(self, {
-    //         "key": self._api_key,
+    //         "key": self.api_key,
+    //         "method": "dna_sendInvite",
+    //         "params": [{ "to": to_address, "amount": amount }],
     //         "id": 1,
     //     })
     // }
 
     // pub async fn activate_invite(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
-    //         "key": self._api_key,
+    //         "key": self.api_key,
     //         "id": 1,
     //     })
     // }
 
     // pub async fn fetch_flip_short_hashes(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
-    //         "key": self._api_key,
+    //         "key": self.api_key,
     //         "id": 1,
     //     })
     // }
 
     // pub async fn fetch_flip_long_hashes(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
-    //         "key": self._api_key,
+    //         "key": self.api_key,
     //         "id": 1,
     //     })
     // }
 
     // pub async fn get_flip(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
-    //         "key": self._api_key,
+    //         "key": self.api_key,
     //         "id": 1,
     //     })
     // }
 
     // pub async fn submit_short_answers(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
-    //         "key": self._api_key,
+    //         "key": self.api_key,
     //         "id": 1,
     //     })
     // }
 
     // pub async fn submit_long_answers(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
-    //         "key": self._api_key,
+    //         "key": self.api_key,
     //         "id": 1,
     //     })
     // }
 
     // pub async fn submit_flip(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
-    //         "key": self._api_key,
+    //         "key": self.api_key,
     //         "id": 1,
     //     })
     // }
@@ -217,38 +243,39 @@ impl IdenaAPI {
         })
     }
 
+    /// Get the sync status of the node.
     pub async fn sync_status(&self) -> Result<Value, IdenaError> {
         do_request!(self, {
             "key": self.api_key,
+            "method": "bcn_syncing",
             "id": 1,
-            "method": "bcn_syncing"
         })
     }
 
     // pub async fn node_version(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
-    //         "key": self._api_key,
+    //         "key": self.api_key,
     //         "id": 1,
     //     })
     // }
 
     // pub async fn import_key(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
-    //         "key": self._api_key,
+    //         "key": self.api_key,
     //         "id": 1,
     //     })
     // }
 
     // pub async fn export_key(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
-    //         "key": self._api_key,
+    //         "key": self.api_key,
     //         "id": 1,
     //     })
     // }
 
     // pub async fn enode(&self) -> Result<Value, IdenaError> {
     //     do_request!(self, {
-    //         "key": self._api_key,
+    //         "key": self.api_key,
     //         "id": 1,
     //     })
     // }
